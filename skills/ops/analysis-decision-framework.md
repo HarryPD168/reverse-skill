@@ -9,8 +9,8 @@
 
 | When | Action |
 |------|--------|
-| Finding promotion / Synthesis | **P0** (R4*, R1, R2, R41) |
-| Stage change or stuck loop | R2, R31, R43 |
+| Finding promotion / Synthesis | **P0** (R4*, R1, R2, R6, R41) |
+| Stage change or stuck loop | R2, R31, R43 (6 questions before exhausted) |
 | Multi-module / anti-analysis | R50, R51 -> anti-analysis + A-T |
 | Already covered by ops/CI/skills | **P2** pointer only |
 
@@ -56,6 +56,17 @@ Does **not** replace "Finding binds >=1 Evidence". Tightens **validated** only:
 
 Checked-absent branch -> `E-negative-evidence`.
 
+A search/scan 0-hit (bytes, strings, xref, emulator taps) is **not** "never" / 「就是没有」. Classify that miss in the same Evidence before promoting absence:
+
+| class | meaning |
+|-------|---------|
+| mid-insn | disassembly not entry-aligned |
+| pad | alignment / section pad / expected filler |
+| expected-noise | search space that should miss |
+| unfalsified-hashed | symbol/import still hashed or obfuscated |
+
+Search 0-hit `E-negative-evidence` MUST include the class. Unclassified search 0-hit stays observation-failure, not product CLOSED. Ordinary checked-absent (port closed, file missing) still uses `E-negative-evidence` without this taxonomy.
+
 ### R7 — Analysis boundary
 
 Declare scope limits -> `E-scope-boundary` (align scope-contract).
@@ -76,9 +87,22 @@ Tool/stage fixation -> `E-bias-detected`.
 
 Claims MUST map Finding -> Evidence; else `ungrounded`.
 
+A synthesis table, INDEX, HANDOFF, or directory name is **not** a source. Before citing `file:line` (or an equivalent path/EA), **open that file** in the same turn. Location syntax in the Finding schema is not a substitute for opening the artifact.
+
 ### R43 — Plan deadlock -> replan
 
 3 actions with no new Evidence, or 2 stage switches without Evidence -> replan under **feasibility gate**. Aligns RULES Self-Supervision.
+
+Before writing exhausted / blocked / 走不通 / method exhausted / product CLOSED, answer these in the **same** Evidence (or the same handoff block). Silent "can't" is a failed replan:
+
+1. Observation failure, or problem closed?
+2. Only knobs turned, or did the instrument change?
+3. Right question, wrong method?
+4. Stronger in-tree instrument unused?
+5. Stopping this hop class, or closing the product?
+6. Was the cited `file:line` actually opened?
+
+Knob-only retries on the same instrument (≥2) are not a method change. Stopping a hop class is allowed; writing product CLOSED from an empty correlator is not.
 
 ### R44 — Single-source high confidence
 
@@ -143,7 +167,7 @@ Effort band + A-T pointers -> `E-anti-adversarial` (**no** A-T table copy).
 1. R41 grounded claims
 2. R4* validated bar
 3. R1 low confidence -> dynamic
-4. R43 deadlock -> replan under feasibility gate
+4. R43 deadlock -> replan under feasibility gate (6 questions before exhausted)
 5. R8/R23 no default malice/IOC
 
 ---

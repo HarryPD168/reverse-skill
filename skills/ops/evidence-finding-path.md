@@ -25,6 +25,16 @@
 
 **MUST**：Finding 引用的 Evidence 至少 1 条；`repro_command` 第三方可跑或标明离线限制。
 
+**Artifact quality**（观察可信度，**不要**用 L1/L2/L3 当主键——field-journal 里 L2 已是 MBA 分层）：
+
+| band | examples | may close a product claim? |
+|------|----------|----------------------------|
+| entry-aligned / named | PE bytes, named dump, entry-aligned disasm, live hash of a named file | yes, if Finding bind + R4* hold |
+| supporting count | emulator tap counts, bounded census, "tests passed" | no, alone |
+| weak / correlator | timing only, CFF-failed decompile, mid-insn disasm, 0-hit as census, truncated tool output | no |
+
+**Claim phrasing**：unobserved ≠ never / 「就是没有」. Closing layer A **MUST NOT** silently CLEAN a related OPEN. **MUST NOT** dual-tag the same claim `pending` + `final` (or CLEAN-pending + CLEAN-final). Synthesis tables are not sources — open `file:line` first (ADF-R41).
+
 **CLI helper**（写入 `work/<case>/evidence/E-*.md`）：
 
 ```powershell
@@ -128,4 +138,4 @@ Promotion to status=validated is stricter (decision cookbook):
 | **validated** | **SHOULD >=2 independent** Evidence (best: 1 static + 1 dynamic). A single Evidence item alone MUST NOT silently promote to validated — keep candidate/preliminary, or record residual_risk + human confirm. |
 | blocked promotion | record Evidence E-insufficient-evidence |
 
-Full recipes: [nalysis-decision-framework.md](analysis-decision-framework.md) (R4*, R1, R41, R44).
+Full recipes: [analysis-decision-framework.md](analysis-decision-framework.md) (R4*, R1, R6, R41, R43, R44).

@@ -16,7 +16,7 @@ description: |
 2. `NOW`: 确认当前任务是否命中本 skill 的适用范围
 3. `NEXT`: 读取 `../tool-index.md`，校验工具可用性和实际路径
 4. `NEXT`: 缺工具时调用 bootstrap，不要猜路径
-5. `ACT`: 进入"工作流"第一步并执行，不要停在确认状态
+5. `ACT`: 进入"工作流"第一步并执行，不要停在确认状态。目标 PE 能用 MCP 打开时，先 `scripts/start.ps1` / `recover.ps1` 修好会话再分析；**禁止**用猜的磁盘 Capstone 字节冒充已打开的 IDB。路径彻底阻塞时仍可按 RULES 换 r2/Ghidra，但必须记 Evidence，不得伪造字节。
 
 ## 已知问题与反思（必读）
 
@@ -85,6 +85,8 @@ description: |
 | 2 | 打开目标二进制文件 | `scripts/open.ps1 -Path "xxx.exe"` |
 | 3 | 使用 MCP 分析工具 | 直接调用 `idapro_*` / HTTP tools（约 65 个，视版本而定） |
 | 4 | 分析完毕 | 工具自动可用 |
+
+MCP/worker 报错时 **先修**（`recover.ps1`），再继续同一 PE。RULES 允许 IDA↔r2 换路，但不允许用猜测字节假装已经读过 IDA。
 
 ## 脚本资源
 

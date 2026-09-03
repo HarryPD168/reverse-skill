@@ -6,9 +6,11 @@ Z3r0 启发、**本包形态**实现：
 |------|------|
 | [IDENTITY.md](IDENTITY.md) | 我们是谁 / 不做平台 |
 | [scope-contract.md](scope-contract.md) | 启动 scope + network_profile |
-| [evidence-finding-path.md](evidence-finding-path.md) | 证据链 |
+| [evidence-finding-path.md](evidence-finding-path.md) | 证据链 + 产物质量 / 未观察≠不存在 |
+| [analysis-decision-framework.md](analysis-decision-framework.md) | ADF：定死前六问、0-hit 分类、先打开再引用 |
+| [analysis-blindspot-cookbook.md](analysis-blindspot-cookbook.md) | 盲区菜谱；截断输出 ≠ 未读正文 |
 | [role-map.md](role-map.md) | 角色→skill + 交接 |
-| [timeline-workitem.md](timeline-workitem.md) | 时间线与覆盖 |
+| [timeline-workitem.md](timeline-workitem.md) | 时间线、覆盖、原话/代笔禁令/工作选择/失败试验 |
 | [sandbox-profile.md](sandbox-profile.md) | 工具对照 |
 | [skill-supply-chain.md](skill-supply-chain.md) | Agent Skill/MCP 供应链安全（AST10 精简） |
 | [case-review/](../case-review/) | Evidence 图完整性审查与报告交接 |

@@ -28,7 +28,7 @@ Trigger: VMP sections, vm_entry, extreme entropy. Action: Tier A qualitative+dyn
 Trigger: exports overlap system DLL; loads real DLL; odd/missing forwarders. Action: diff exports; Path dropper->proxy->payload (R50). Evidence: E-proxy-dll.
 
 ### R78 LLM hallucination
-Trigger: API/CFG claims without offset/tool output. Action: R41 grounded bar; else ungrounded. Evidence: E-llm-hallucination.
+Trigger: API/CFG claims without offset/tool output. Action: R41 grounded bar; else ungrounded. Truncated or failed tool output (HTTP 400, max_tokens, incomplete/slim session) is **not** entry-aligned evidence of the unread body. Evidence: E-llm-hallucination.
 
 ### R80 Context pollution
 Trigger: contradicts confirmed Evidence/timeline; reused rejected hypothesis. Action: re-read timeline+Evidence (R2); drop polluted summary. Evidence: E-context-pollution.

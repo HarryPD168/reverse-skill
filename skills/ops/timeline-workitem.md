@@ -11,9 +11,11 @@ work/<case>/
   timeline.md        # 追加写，禁止改历史条目
   workitems.md       # 工作项与覆盖
   evidence/          # 原始产物（截图、pcap、日志）
-  notes/
+  notes/             # 草稿；不是 Evidence，也不是权限表
   report/            # 最终报告草稿或拷贝
 ```
+
+`notes/`、scratch、以及 case 内未晋升的临时目录（如 `work/<case>/scratch/` 或嵌套 `work/`）**不是** Evidence；`work/<case>/evidence/` 仍是 Evidence 目录。HANDOFF / briefing / runbook **不是** NOW，也 **不是** 权限表。授权只认 `scope.md`（`ops/scope-contract.md`）。长战役若手写 `work/<case>/DECISIONS.md`，它只记录操作者原话与工作选择，**不得**变成第二份授权 SSoT，也 **不得**覆盖 `scope.md`。
 
 初始化：
 
@@ -49,6 +51,19 @@ powershell -File skills\scripts\case-init.ps1 -Hint "full pentest" -CaseName "ac
 - 只有存在两个或以上 materially different、evidence-supported 分支，且用户选择会改变下一动作时才是 genuine decision boundary；确定性 transition 直接继续，不为制造菜单而重述上下文。
 
 代表性 transition：`Triage -> Static` 若 auth/scope/route 未变，只记录 `decision_delta: [phase=triage->static]`，并以 `carry_forward_refs: [scope.md, evidence/E-triage.md]` 继承其余状态。
+
+### Permission vs working choice vs failed trial
+
+在把一句「禁止 / CLOSED / 耗尽」当成约束之前，先分类。`scope.md` 仍是唯一 ACT 授权门。
+
+| 类别 | 是什么 | MUST |
+|------|--------|------|
+| Operator verbatim | 操作者原话（已写入或即将写入 `scope.md`） | 权限/范围只认这个 + `scope.md` |
+| Invented ban | 代理代写的 Do-NOT，操作者没说过 | **禁止**据此缩 scope |
+| Working choice | 当晚方法、hold、下一刀 | 可改；**不是**禁令 |
+| Failed trial | 否定性 Evidence | 可再试；**禁止**改写成操作者禁令或产品 CLOSED |
+
+过期 `HANDOFF-*`、briefing、runbook、`notes/` **MUST NOT** 当 NOW 或权限表。现场已记录的 Evidence **可以**让任何文件里的 current-choice 快照过期（含可选的 case `DECISIONS.md` § current choice）。
 
 ## workitems.md 模板
 

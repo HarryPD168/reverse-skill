@@ -7,9 +7,9 @@
 ## 不要做
 
 - 不要再配第二个 IDA MCP（`ida-pro-mcp`、blacktop、iida、stdio 第二套 supervisor）
-- 不要 `?ext=dbg`，不要 attach / DebugActiveProcess（ACE 起来后）
-- 不要 Hex-Rays `0x183B04ECC`；leftover INTERP CFF 失败时改用磁盘 Capstone / persist emu
-- 不要把 NameDB needle 当 dest-env 成功条件
+- 不要默认开 `?ext=dbg` / `dbg_*`（调试扩展另案授权，不是静态 MCP 默认路径）
+- CFF / 混淆导致 Hex-Rays 失败时：先 `recover.ps1` 修好 MCP，再用入口对齐反汇编或 `py_eval`；**禁止**用猜的磁盘 Capstone 字节冒充已打开的 IDB
+- 旁路字符串、目录名、合成表不是成功条件；打开 `file:line` 再引用
 
 ## 工具怎么选
 
@@ -49,6 +49,6 @@ result = "ok"
 
 长脚本用 `py_exec_file`（绝对路径），不要把几百行塞进 py_eval。
 
-## 大 .tvm0
+## 超大函数 / 未分析完的 IDB
 
-MCP `decompile` 巨函数会炸。需要归档时用 IDA-NO-MCP **导出文件**（`inp` / Ctrl-Shift-E），不要再挂一个 MCP。
+MCP `decompile` 巨函数可能把 worker 打挂。需要归档时用 IDA GUI **导出文件**，不要再挂一套 MCP。
