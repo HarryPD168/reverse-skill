@@ -6,10 +6,10 @@
 
 ## 统计
 
-- 真实项目数：21
+- 真实项目数：28
 - 种子参考数：17
-- 总条目数：38
-- 最近更新：2026-09-03
+- 总条目数：45
+- 最近更新：2026-09-04
 
 ## 按场景分类
 
@@ -21,6 +21,13 @@
 
 ### 二进制 / 固件 / CTF
 
+- [2026-08-20_tpshell-a35f4-store-add-imm](./2026-08-20_tpshell-a35f4-store-add-imm.md)
+- [2026-08-20_tpshell-follow-unk-opcode-lift](./2026-08-20_tpshell-follow-unk-opcode-lift.md)
+- [2026-08-16 Delta Force 全量工程逆向 Pass-1](./2026-08-16_deltaforce-full-engineering-re-pass1.md)
+- [2026-08-16 UE4 WeGame TenProtect ACE 盘点](./2026-08-16_ue4-wegame-tenprotect-ace-inventory.md)
+- [2026-08-13 HWW v2.17 IDA 红队防御](./2026-08-13_hww-v217-ida-red-defensive.md)
+- [2026-08-13 HWW v2.17 IDA 红队 follow-up](./2026-08-13_hww-v217-ida-red-followup.md)
+- [2026-08-13 HWW DEEP-D RED-TRUST](./2026-08-13_hww-deep-d-red-trust.md)
 - [2026-08-06_cortex-m-msc-firmware-self-keyed-rotate-xor](./2026-08-06_cortex-m-msc-firmware-self-keyed-rotate-xor.md)
 - [2026-07-22 Electron Bytenode 特权更新链分析](./2026-07-22_electron-bytenode-privileged-update-chain.md)
 - [2026-07-14_android-arm64-self-extract-source-recovery](./2026-07-14_android-arm64-self-extract-source-recovery.md)
